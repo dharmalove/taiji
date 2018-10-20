@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+*{margin: 0;padding: 0;}
+.taiji{
+  width: 196px;
+  height: 98px;
+  margin: 20px auto;
+  border-color: #000;
+  border-style: solid;
+  border-width: 2px 2px 100px 2px;
+  border-radius: 100%;
+  background: #fff;
+  position: relative;
+  animation: spin 2s infinite linear;
+}
+.taiji::before{
+  content: '';
+  width: 26px;
+  height: 26px;
+  background: #fff;
+  border: 36px solid black;
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.taiji::after{
+  content: '';
+  width: 26px;
+  height: 26px;
+  background: #000;
+  border: 36px solid #fff;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+@keyframes spin{
+  0% {
+    transform: rotateZ(0);
+  }
+  100%{
+    transform: rotateZ(360deg);
+  }
+}
+/*另一种写法*/
+#taiji_spin{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  background-image: linear-gradient(0deg, #ffeb3b 50%,#f44336 50%);
+  border-radius: 50%;
+  box-shadow: 0px 0px 30px #ff9800;
+}
+#taiji_spin:before, #taiji_spin:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 25%;
+  border-radius: 50%;
+  border-width: 35px;
+  border-style: solid;
+}
+#taiji_spin:before {
+  left: 0;
+  border-color: #ffeb3b;
+  background-color: #f44336;
+}
+#taiji_spin:after {
+  right: 0;
+  border-color: #f44336;
+  background-color: #ffeb3b;
+}
+#taiji_spin:hover {
+  animation: spin 1s infinite linear;
+}
+</style>
+<body>
+    <div class="taiji"></div>
+    <div id="taiji_spin"></div>
+</body>
+</html>
